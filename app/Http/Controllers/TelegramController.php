@@ -14,6 +14,9 @@ class TelegramController extends Controller
 
     public function test()
     {
+        \Artisan::call('route:cache');
+        \Artisan::call('config:clear');
+        \Artisan::call('config:cache');
         $response = Telegram::getMe();
         dd($response);
     }
